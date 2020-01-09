@@ -100,9 +100,7 @@ public class Student {
 			}
 		} while (choice != 'q');
 		
-		input.close();
-		//System.out.println("Courses taken: " + this.courses);
-		//System.out.println("Tuition Balance: " + this.tuitionBalance);
+		//input.close();
 	}
 
 	// View balance
@@ -121,6 +119,23 @@ public class Student {
 			tuitionBalance -= amount;
 		viewBalance();
 	}
+	
+	public void payTuition() {
+		System.out.println("..How much would you like to pay?");
+		Scanner input = new Scanner(System.in);
+		int amount = input.nextInt();
+		//input.close();
+		
+		if (amount > tuitionBalance) {
+			System.out.println("....your change: $" + (amount-tuitionBalance));
+			tuitionBalance = 0;
+		}
+		else
+			tuitionBalance -= amount;
+		
+		viewBalance();		
+	}
+	
 	// Show status
 	public void showStatus() {
 		//System.out.println("--- status ---");

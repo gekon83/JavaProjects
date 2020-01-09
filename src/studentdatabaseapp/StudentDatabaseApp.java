@@ -18,6 +18,8 @@
 
 package studentdatabaseapp;
 
+import java.util.Scanner;
+
 public class StudentDatabaseApp {
 
 	public static void main(String[] args) {
@@ -29,14 +31,21 @@ public class StudentDatabaseApp {
 		stu1.viewBalance();
 
 		stu1.payTuition(100);
-		stu1.payTuition(4000);
+		stu1.payTuition();
 		
 		stu1.showStatus();
 		
-		
+		/*
 		// Ask how many users to add
+		System.out.println("Enter how many students to enroll");
+		Scanner input = new Scanner(System.in);
+		int numOfStudents = input.nextInt();
+		Student[] students = new Student[numOfStudents];
 		
 		// Create n number of students
+		for (int n=0; n < numOfStudents; n++) {
+			students[n] = new Student()
+		}*/
 
 	}
 

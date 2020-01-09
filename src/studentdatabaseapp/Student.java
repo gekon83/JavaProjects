@@ -1,5 +1,6 @@
 package studentdatabaseapp;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Student {
@@ -8,7 +9,8 @@ public class Student {
 	private String lastName;
 	private int gradeYear;
 	private int studentID;
-	private String courses;
+	//private String courses = "";
+	private ArrayList<String> courses;
 	private int tuitionBalance;
 	private static int costOfCourse = 600;
 	
@@ -21,10 +23,10 @@ public class Student {
 		setStudentInfo("Grzegorz", "Kozlowski", 3);
 		
 		setStudentID();
+				
+		//setStudentCourse();
 		
 		System.out.println("Student: " + firstName + " " + lastName + " " + gradeYear + " ID:" + studentID);
-		
-		setStudentCourse();
 	}
 	
 	// Input students information
@@ -39,7 +41,7 @@ public class Student {
 		System.out.println("1 - Freshman\n2 - Sophmore\n3 - Junior\n4 - Senior\nEnter student class level");
 		this.gradeYear = input.nextInt();
 		
-		input.close();		
+		//input.close();		
 	}
 
 	// Input students information overloaded for testing
@@ -56,9 +58,50 @@ public class Student {
 	}
 	
 	// Enroll in courses
-	//History 101 Mathematics 101 English 101 Chemistry 101 Computer Science 101
-	private void setStudentCourse() {
-		System.out.println("Choose classes to enroll:\n1 - History 101\n2 - Mathematics 101\n3 - English 101\n4 - Chemistry\n5 - 101 Computer\n6 - Science 101\nq or Q - Quit");
+	public void setStudentCourse() {
+		
+		this.courses = new ArrayList<String>();
+		Scanner input = new Scanner(System.in);
+		char choice;
+		
+		// ### issue check if course already taken
+		
+		do {
+			//System.out.println("----------------");
+			//System.out.println("Choose classes to enroll:\n1 - History 101\n2 - Mathematics 101\n3 - English 101\n4 - Chemistry 101\n5 - Computer Science 101\nq - Quit");
+			System.out.println("Choose classes: (1) History 101, (2) Mathematics 101, (3) English 101, (4) Chemistry 101, (5) Computer Science 101, (q) Quit");
+			choice = input.next().charAt(0);
+			switch (choice) {
+			case '1':
+				this.courses.add("History 101");
+				this.tuitionBalance += costOfCourse;
+				break;
+			case '2':
+				this.courses.add("Mathematics 101");
+				this.tuitionBalance += costOfCourse;
+				break;
+			case '3':
+				this.courses.add("English 101");
+				this.tuitionBalance += costOfCourse;
+				break;
+			case '4':
+				this.courses.add("Chemistry 101");
+				this.tuitionBalance += costOfCourse;
+				break;
+			case '5':
+				this.courses.add("Computer Science 101");
+				this.tuitionBalance += costOfCourse;
+				break;
+			case 'q':
+			case 'Q':
+				System.out.println(" -- Enrolled finished --");
+				break;
+			default:
+				System.out.println(" ## Wrong input. Try again. ##");
+			}
+		} while (choice != 'q');
+		System.out.println("Courses taken: " + this.courses);
+		System.out.println("Tuition Balance: " + this.tuitionBalance);
 	}
 
 	// View balance

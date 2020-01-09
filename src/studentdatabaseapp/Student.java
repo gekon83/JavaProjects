@@ -19,8 +19,8 @@ public class Student {
 	// Constructor: prompt to enter name and year
 	public Student() {
 
-		//setStudentInfo();
-		setStudentInfo("Grzegorz", "Kozlowski", 3);
+		setStudentInfo();
+		//setStudentInfo("Grzegorz", "Kozlowski", 3);
 		
 		setStudentID();
 				
@@ -100,7 +100,6 @@ public class Student {
 			}
 		} while (choice != 'q');
 		
-		//input.close();
 	}
 
 	// View balance
@@ -132,7 +131,7 @@ public class Student {
 		}
 		else
 			tuitionBalance -= amount;
-		
+		//input.close();
 		viewBalance();		
 	}
 	

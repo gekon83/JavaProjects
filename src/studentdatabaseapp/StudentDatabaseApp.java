@@ -24,18 +24,6 @@ public class StudentDatabaseApp {
 
 	public static void main(String[] args) {
 		
-		Student stu1 = new Student();
-		
-		stu1.setStudentCourse();
-		
-		stu1.viewBalance();
-
-		stu1.payTuition(100);
-		stu1.payTuition();
-		
-		stu1.showStatus();
-		
-		/*
 		// Ask how many users to add
 		System.out.println("Enter how many students to enroll");
 		Scanner input = new Scanner(System.in);
@@ -44,9 +32,18 @@ public class StudentDatabaseApp {
 		
 		// Create n number of students
 		for (int n=0; n < numOfStudents; n++) {
-			students[n] = new Student()
-		}*/
+			System.out.println("-- Student " + (n+1) + " --");
+			students[n] = new Student();
+			students[n].setStudentCourse();		
+			students[n].viewBalance();
+			students[n].payTuition();
+			System.out.println("---------------");
+		}
 
+		// Show students
+		for (int n=0; n < numOfStudents; n++) {		
+			students[n].showStatus();
+		}
 	}
 
 }

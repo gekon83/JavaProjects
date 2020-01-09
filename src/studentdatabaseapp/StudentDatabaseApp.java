@@ -11,8 +11,8 @@
 	* The student should have a 5-digit unique ID, with the first number being their grade level
 	* A student can enroll in the following courses: History 101 Mathematics 101 English 101 Chemistry 101 Computer Science 101
 	* Each course costs $600 to enroll
-	- The student should be able to view their balance and pay the tuition
-	- To see the status of the student, we should see their name, ID, courses enrolled, and balance
+	* The student should be able to view their balance and pay the tuition
+	* To see the status of the student, we should see their name, ID, courses enrolled, and balance
 
 */
 
@@ -25,6 +25,15 @@ public class StudentDatabaseApp {
 		Student stu1 = new Student();
 		
 		stu1.setStudentCourse();
+		
+		stu1.viewBalance();
+
+		stu1.payTuition(100);
+		stu1.payTuition(4000);
+		
+		stu1.showStatus();
+		
+		
 		// Ask how many users to add
 		
 		// Create n number of students

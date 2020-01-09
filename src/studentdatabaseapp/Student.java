@@ -26,7 +26,8 @@ public class Student {
 				
 		//setStudentCourse();
 		
-		System.out.println("Student: " + firstName + " " + lastName + " " + gradeYear + " ID:" + studentID);
+		//System.out.println("Student: " + firstName + " " + lastName + " " + gradeYear + " ID:" + studentID);
+		showStatus();
 	}
 	
 	// Input students information
@@ -67,8 +68,6 @@ public class Student {
 		// ### issue check if course already taken
 		
 		do {
-			//System.out.println("----------------");
-			//System.out.println("Choose classes to enroll:\n1 - History 101\n2 - Mathematics 101\n3 - English 101\n4 - Chemistry 101\n5 - Computer Science 101\nq - Quit");
 			System.out.println("Choose classes: (1) History 101, (2) Mathematics 101, (3) English 101, (4) Chemistry 101, (5) Computer Science 101, (q) Quit");
 			choice = input.next().charAt(0);
 			switch (choice) {
@@ -100,13 +99,33 @@ public class Student {
 				System.out.println(" ## Wrong input. Try again. ##");
 			}
 		} while (choice != 'q');
-		System.out.println("Courses taken: " + this.courses);
-		System.out.println("Tuition Balance: " + this.tuitionBalance);
+		
+		input.close();
+		//System.out.println("Courses taken: " + this.courses);
+		//System.out.println("Tuition Balance: " + this.tuitionBalance);
 	}
 
 	// View balance
+	public void viewBalance() {
+		System.out.println("Tuition balance: $" + tuitionBalance);
+	}
 	
 	// Pay tuition
-	
+	public void payTuition(int amount) {
+		System.out.println("..paying for tuition with $" + amount);
+		if (amount > tuitionBalance) {
+			System.out.println("....your change: $" + (amount-tuitionBalance));
+			tuitionBalance = 0;
+		}
+		else
+			tuitionBalance -= amount;
+		viewBalance();
+	}
 	// Show status
+	public void showStatus() {
+		//System.out.println("--- status ---");
+		System.out.println("-- Student:\t" + firstName + " " + lastName + "\n\t\tGrade year: " + gradeYear + ", ID:" + studentID);
+		System.out.println("\t\tCourses taken: " + courses + "\n\t\tTuition balance: $" + tuitionBalance);
+		//viewBalance();
+	}
 }
